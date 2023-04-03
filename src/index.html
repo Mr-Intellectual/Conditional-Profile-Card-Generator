@@ -10,80 +10,122 @@
       integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/072e5df971.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="shortcut icon" href="./assets/img/4geeks.ico" />
   </head>
 
   <body>
-    <ul class="filters">
-      <li>
-        <label>Include Cover</label>
-        <select class="picker" for="includeCover">
-          <option value="">Include Cover</option>
-          <option value="true">True</option>
-          <option value="false">False</option>
-        </select>
-      </li>
-      <li>
-        <label>Name</label>
-        <input class="picker" for="name" type="text" />
-      </li>
-      <li>
-        <label>Last Name</label>
-        <input class="picker" for="lastname" type="text" />
-      </li>
-      <li>
-        <label>S.M. Position</label>
-        <select class="picker" for="socialMediaPosition">
-          <option value="position-left">Left</option>
-          <option value="position-right">Right</option>
-        </select>
-      </li>
-      <li>
-        <label>Twitter</label>
-        <input class="picker" for="twitter" type="text" />
-      </li>
-      <li>
-        <label>Github</label>
-        <input class="picker" for="github" type="text" />
-      </li>
-      <li>
-        <label>LinkedIn</label>
-        <input class="picker" for="linkedin" type="text" />
-      </li>
-      <li>
-        <label>Instagram</label>
-        <input class="picker" for="instagram" type="text" />
-      </li>
-      <li>
-        <label>Role</label>
-        <select class="picker" for="role">
-          <option value="">null</option>
-          <option value="Web Developer">Web Developer</option>
-          <option value="Floor Planner">Floor Planner</option>
-          <option value="Technical Writter">Technical Writter</option>
-        </select>
-      </li>
-      <li>
-        <label>City</label>
-        <select class="picker" for="city">
-          <option value="">null</option>
-          <option value="Miami">Miami</option>
-          <option value="Munich">Munich</option>
-          <option value="Caracas">Caracas</option>
-          <option value="Toronto">Toronto</option>
-        </select>
-      </li>
-      <li>
-        <label>Country</label>
-        <select class="picker" for="country">
-          <option value="">null</option>
-          <option value="USA">USA</option>
-          <option value="Germany">Germany</option>
-          <option value="Canada">Canada</option>
-          <option value="Venezuela">Venezuela</option>
-        </select>
-      </li>
-    </ul>
+    <div class="filters">
+      <ul>
+        <li>
+          <label>Include Cover</label>
+          <select class="picker" for="includeCover">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </li>
+        <li>
+          <label>First Name</label>
+          <input
+            class="picker"
+            for="firstname"
+            type="text"
+            placeholder="Enter First Name"
+          />
+        </li>
+        <li>
+          <label>Last Name</label>
+          <input
+            class="picker"
+            for="lastname"
+            type="text"
+            placeholder="Enter Last Name"
+          />
+        </li>
+        <li>
+          <label>S.M. Position</label>
+          <select class="picker" for="socialMediaPosition">
+            <option value="position-left">Left</option>
+            <option value="position-right">Right</option>
+          </select>
+        </li>
+        <li>
+          <label>Twitter</label>
+          <input
+            class="picker"
+            for="twitter"
+            type="text"
+            placeholder="Enter Twitter"
+          />
+        </li>
+        <li>
+          <label>Github</label>
+          <input
+            class="picker"
+            for="github"
+            type="text"
+            placeholder="Enter Github"
+          />
+        </li>
+        <li>
+          <label>LinkedIn</label>
+          <input
+            class="picker"
+            for="linkedin"
+            type="text"
+            placeholder="Enter LinkedIn"
+          />
+        </li>
+        <li>
+          <label>Instagram</label>
+          <input
+            class="picker"
+            for="instagram"
+            type="text"
+            placeholder="Enter Instagram"
+          />
+        </li>
+        <li>
+          <label>Select Role</label>
+          <select class="picker" for="role" id="role">
+            <option value="">Role</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Floor Planner">Floor Planner</option>
+            <option value="Technical Writter">Technical Writter</option>
+            <option>Type Role</option>
+          </select>
+        </li>
+        <li>
+          <label>Select City</label>
+          <select class="picker" for="city" id="city">
+            <option value="">City</option>
+            <option value="Miami">Miami</option>
+            <option value="Munich">Munich</option>
+            <option value="Caracas">Caracas</option>
+            <option value="Toronto">Toronto</option>
+            <option>Type City</option>
+          </select>
+        </li>
+        <li>
+          <label>Select Country</label>
+          <select class="picker" for="country" id="country">
+            <option value="">Country</option>
+            <option value="USA">USA</option>
+            <option value="Germany">Germany</option>
+            <option value="Canada">Canada</option>
+            <option value="Venezuela">Venezuela</option>
+            <option>Type Country</option>
+          </select>
+        </li>
+      </ul>
+      <label id="inPut" style="display:none;">
+        <input for="" type="text" placeholder="Enter" ></input>
+      </label>
+    </div>
+
     <div id="widget_content"></div>
 
     <!-- do not remove this bundle.js tag -->

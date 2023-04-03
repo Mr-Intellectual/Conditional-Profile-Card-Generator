@@ -1,11 +1,13 @@
 .filters {
   background: white;
   width: 100%;
+  text-align: center !important;
 }
 .filters li {
   display: inline-block;
-  max-width: 80px;
+  max-width: 85px;
   padding: 3px;
+  text-align: center;
 }
 .filters li label {
   display: block;
@@ -16,33 +18,41 @@
   width: 100%;
 }
 .filters li select {
+  padding: 1px;
   width: 100%;
 }
+::placeholder {
+  font-style: italic;
+  font-size: 10px;
+  text-align: center;
+  padding: 5px;
+}
+
 .widget {
   position: relative;
-  width: 300px;
-  height: 350px;
-  margin: 50px auto;
+  width: 400px;
+  height: 550px;
+  margin: 40px auto;
   background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
 }
 .widget .cover {
-  height: 160px;
+  height: 45.7%;
   overflow: hidden;
 }
 .widget .cover img {
   width: 100%;
   height: auto;
   min-height: 160px;
-  border-radius: 4px 4px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 .widget .photo {
   position: absolute;
-  top: 85px;
-  left: 50%;
-  width: 100px;
-  height: 100px;
+  top: 24.29%;
+  left: 46%;
+  width: 33.33%;
+  height: 24.23%;
   margin: 0 0 0 -55px;
   border: 5px solid #fff;
   border-radius: 50%;
@@ -54,7 +64,7 @@
   margin: 10px 0;
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   color: #999;
 }
@@ -73,10 +83,16 @@
   background: #2cdfd3;
 }
 .widget ul.position-left {
-  left: -26px;
+  width: 41.77px;
+  height: 175.74px;
+  left: -42px;
+  top: 30%;
 }
 .widget ul.position-right {
-  right: -27px;
+  width: 41.77px;
+  height: 175.74px;
+  right: -41px;
+  top: 30%;
 }
 .widget ul li {
   list-style: none;
@@ -99,4 +115,18 @@
 .widget ul li:last-child > a {
   border: none;
   border-radius: 0 0 3px 0;
+}
+#name {
+  font-size: 29.9px;
+}
+#Role {
+  font-size: 23px;
+}
+#City {
+  font-size: 19px;
+}
+#inPut > input {
+  padding: 5px;
+  width: 35%;
+  margin-top: 20px !important;
 }

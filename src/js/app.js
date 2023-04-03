@@ -22,25 +22,109 @@ import "../style/index.css";
         city: null
     }
  */
+
 function render(variables = {}) {
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
+
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  // reset the website body with the new html output
+  function getFullName(variables) {
+    if (variables.firstname !== null || variables.lastname !== null) {
+      if (variables.lastname === null) {
+        return "Now Enter Lastname...";
+      } else if (variables.firstname === null) {
+        return "Now Enter Firstname...";
+      } else {
+        return variables.firstname + " " + variables.lastname;
+      }
+    } else {
+      return "Enter Full Name Above...";
+    }
+  }
+
+  function inputOption(field) {
+    if (field === "role") {
+      if (variables.role === null) {
+        return "Select Role Above";
+      } else if (variables.role === "Type Role") {
+        console.log("r");
+
+        showInput("role", "Typing Your Role");
+        return "Type your role";
+      } else {
+        return variables.role;
+      }
+    } else if (field === "city") {
+      if (variables.city === null) {
+        return "Select City Above";
+      } else if (variables.city === "Type City") {
+        console.log("c");
+        showInput("city", "Typing Your City");
+        return "Type your city";
+      } else {
+        return variables.city;
+      }
+    } else if (field === "country") {
+      if (variables.country === null) {
+        return "Select Country Above";
+      } else if (variables.country === "Type Country") {
+        showInput("country", "Typing Your Country");
+        return "Type your country";
+      } else {
+        return variables.country;
+      }
+    }
+  }
+
+  function showInput(inputId, placeholder) {
+    const input = document.getElementById("inPut");
+    input.style.display = "block";
+    input.firstElementChild.setAttribute("for", inputId);
+    input.firstElementChild.setAttribute("placeholder", placeholder);
+    input.firstElementChild.value = "";
+    input.firstElementChild.focus();
+    let resetSelection = document.getElementById(inputId);
+    resetSelection.value = "";
+  }
+
+  document.querySelector("#inPut input").addEventListener("change", e => {
+    const inputId = e.target.getAttribute("for");
+    const value = e.target.value.trim();
+    if (value) {
+      hideInput();
+      render(Object.assign(window.variables, { [inputId]: value }));
+    } else {
+      hideInput();
+    }
+  });
+
+  function hideInput() {
+    document.getElementById("inPut").style.display = "none";
+  }
+
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1 id="name">${getFullName(variables)}</h1>
+          <h2 id="Role">${inputOption("role")}</h2>
+          <h3 id="City">${inputOption("city")}, ${inputOption("country")}</h3>
+          <ul class="${variables.socialMediaPosition}" target="_blank">
+          <li><a href="https://twitter.com/ ${
+            variables.twitter
+          }" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+          <li><a href="https://github.com/${
+            variables.github
+          }" target="_blank"><i class="fab fa-github fa-2x"></i></a></li>
+          
+          <li><a href="https://linkedin.com/${
+            variables.linkedin
+          }" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+          <li><a href="https://instagram.com/${
+            variables.instagram
+          }" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
           </ul>
         </div>
     `;
@@ -64,7 +148,7 @@ window.onload = function() {
     github: "alesanchezr",
     linkedin: null,
     instagram: null,
-    name: null,
+    firstname: null,
     lastname: null,
     role: null,
     country: null,
